@@ -13,6 +13,7 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
     //次画面に移る前の処理
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //問題文の読み込み
@@ -28,6 +29,7 @@ class StartViewController: UIViewController {
         //問題文のセット
         nextViewController.questionData = questionData
     }
+    
     //タイトルに戻ってくるときに呼び出される処理
     @IBAction func goToTitle(_ segue:UIStoryboardSegue){
     }

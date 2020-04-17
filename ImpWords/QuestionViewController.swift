@@ -12,35 +12,35 @@ import AudioToolbox
 class QuestionViewController: UIViewController {
     
     var questionData:QuestionData! //前画面より受け取るデータ
-//    var sumOfQuestions:QuestionData! //前画面より受け取るデータ
-    @IBOutlet weak var questionNoLabel: UILabel!//問題番号
-    @IBOutlet weak var questionTextView: UITextView!//問題文
-    @IBOutlet weak var answer1Button: UIButton!//選択肢１
-    @IBOutlet weak var answer2Button: UIButton!//選択肢２
-    @IBOutlet weak var answer3Button: UIButton!//選択肢３
-    @IBOutlet weak var answer4Button: UIButton!//選択肢４
 
-    @IBOutlet weak var correctImageView: UIImageView!//正解の画像
-    @IBOutlet weak var incorrectImageView: UIImageView!//不正解の画像
+    @IBOutlet weak var questionNoLabel: UILabel!     //問題番号
+    @IBOutlet weak var questionTextView: UITextView! //問題文
+    @IBOutlet weak var answer1Button: UIButton!      //選択肢１
+    @IBOutlet weak var answer2Button: UIButton!      //選択肢２
+    @IBOutlet weak var answer3Button: UIButton!      //選択肢３
+    @IBOutlet weak var answer4Button: UIButton!      //選択肢４
+
+    @IBOutlet weak var correctImageView: UIImageView!  //正解の画像 ◯
+    @IBOutlet weak var incorrectImageView: UIImageView!//不正解の画像　✗
     
-    @IBOutlet weak var trueAnswer: UILabel!//不正解の時、正解を示す hide属性
-    @IBOutlet weak var nextQuestionButton: UIButton!//不正解の時、次の問題へ進むボタン　hide属性
+    @IBOutlet weak var trueAnswer: UILabel!          //不正解の時、正解を示す hide属性
+    @IBOutlet weak var nextQuestionButton: UIButton! //次の問題へ進むボタン　 hide
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //問題数の取得
-         let questionCount = QuestionDataManeger.sharedInstance.questionDataArray.count
+        
+        //問題数の取得  sharedInstance.questionDataArray****
+        let questionCount = QuestionDataManeger.sharedInstance.questionDataArray.count
+        
         //初期データ設定。前画面から受け取ったquestionDataから値を取り出す
         questionNoLabel.text = "Q.\(questionData.questionNo)" + "/\(questionCount)"
-
-        questionTextView.text = questionData.question
+        questionTextView.text = questionData.question //問題文
         answer1Button.setTitle(questionData.answer1, for: UIControl.State.normal)
         answer2Button.setTitle(questionData.answer2, for: UIControl.State.normal)
         answer3Button.setTitle(questionData.answer3, for: UIControl.State.normal)
         answer4Button.setTitle(questionData.answer4, for: UIControl.State.normal)
-        trueAnswer.text = questionData.correctAnswer
-
+        trueAnswer.text = questionData.correctAnswer //正答
     }
     
     //選択肢１を選んだ時
@@ -103,9 +103,9 @@ class QuestionViewController: UIViewController {
     }
     
     func goNextQuestion()  {
-        //問題文の取り出し
+        //問題文の取り出し  sharedInstance.nextQuestion ****
         guard let nextQuestion = QuestionDataManeger.sharedInstance.nextQuestion() else {
-            //問題文に残りがない時　最後の問題の時
+            //問題文に残りがない時 ＝ 最後の問題の時
             if let resultViewController = storyboard?.instantiateViewController(withIdentifier: "result") as? ResultViewController {
                 present(resultViewController,animated: true,completion: nil)
             }
