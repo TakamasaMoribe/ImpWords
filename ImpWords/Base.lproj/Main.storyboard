@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -105,13 +105,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="問題文です。当てはまる言葉を下の４つの中から選んで、クリックしてください。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cMM-es-7fV">
-                                <rect key="frame" x="16" y="57" width="343" height="130"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5HF-9z-Gc3">
                                 <rect key="frame" x="140.5" y="271" width="92" height="225"/>
                                 <subviews>
@@ -171,12 +164,23 @@
                                     <action selector="tapNextButton:" destination="ebj-5J-WA2" eventType="touchUpInside" id="nTE-Iu-VDL"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Kp5-YC-qGP">
+                                <rect key="frame" x="63" y="61" width="254" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="問題文です。当てはまる言葉を下の４つの中から選んで、クリックしてください。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cMM-es-7fV">
+                                <rect key="frame" x="16" y="71" width="343" height="116"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="mKt-49-5OO" firstAttribute="centerY" secondItem="9Jd-hs-hFV" secondAttribute="centerY" id="4Wq-Uk-TAJ"/>
                             <constraint firstItem="5HF-9z-Gc3" firstAttribute="top" secondItem="cMM-es-7fV" secondAttribute="bottom" constant="84" id="6eH-36-zlV"/>
-                            <constraint firstItem="cMM-es-7fV" firstAttribute="top" secondItem="6nu-Zs-fxx" secondAttribute="bottom" constant="8" id="7Ah-MD-4DI"/>
+                            <constraint firstItem="cMM-es-7fV" firstAttribute="top" secondItem="6nu-Zs-fxx" secondAttribute="bottom" constant="22" id="7Ah-MD-4DI"/>
                             <constraint firstItem="6nu-Zs-fxx" firstAttribute="top" secondItem="Lvr-oe-0NI" secondAttribute="top" constant="20" id="CDU-yp-0Et"/>
                             <constraint firstItem="9Jd-hs-hFV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mKt-49-5OO" secondAttribute="trailing" constant="8" symbolic="YES" id="Dlp-bs-OgI"/>
                             <constraint firstItem="m6a-Qj-Mno" firstAttribute="centerX" secondItem="kFN-ip-znc" secondAttribute="centerX" constant="-1" id="ErM-br-2Ri"/>
@@ -208,6 +212,7 @@
                         <outlet property="correctImageView" destination="2XG-b8-7sC" id="sU9-1x-w5I"/>
                         <outlet property="incorrectImageView" destination="m6a-Qj-Mno" id="Tg7-eu-fsm"/>
                         <outlet property="nextQuestionButton" destination="9Jd-hs-hFV" id="PCK-Pp-ifL"/>
+                        <outlet property="progressView" destination="Kp5-YC-qGP" id="gA0-LN-3gT"/>
                         <outlet property="questionNoLabel" destination="6nu-Zs-fxx" id="bxQ-Pa-PFq"/>
                         <outlet property="questionTextView" destination="cMM-es-7fV" id="QqP-ZH-kDF"/>
                         <outlet property="trueAnswer" destination="mKt-49-5OO" id="sRv-Gg-lk3"/>

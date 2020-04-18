@@ -12,7 +12,9 @@ import AudioToolbox
 class QuestionViewController: UIViewController {
     
     var questionData:QuestionData! //前画面より受け取るデータ
-
+    
+    @IBOutlet weak var progressView: UIProgressView! //解答の進行状況
+    
     @IBOutlet weak var questionNoLabel: UILabel!     //問題番号
     @IBOutlet weak var questionTextView: UITextView! //問題文
     @IBOutlet weak var answer1Button: UIButton!      //選択肢１
@@ -41,7 +43,14 @@ class QuestionViewController: UIViewController {
         answer3Button.setTitle(questionData.answer3, for: UIControl.State.normal)
         answer4Button.setTitle(questionData.answer4, for: UIControl.State.normal)
         trueAnswer.text = questionData.correctAnswer //正答
+    
+        //解答の進行状況を表示する
+            var degree:Float = 0.0 //進み具合
+            degree = Float(questionData.questionNo) / Float(questionCount)
+            progressView.progress = degree //progressView を動かす
+        
     }
+    // end of override func viewDidLoad() ------------------------------------------------
     
     //選択肢１を選んだ時
     @IBAction func tapAnswer1Button(_ sender: Any) {
