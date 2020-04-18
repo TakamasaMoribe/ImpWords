@@ -30,7 +30,7 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //問題数の取得  sharedInstance.questionDataArray****
+        //問題数の取得  QuestionDataManeger.sharedInstance.questionDataArray****
         let questionCount = QuestionDataManeger.sharedInstance.questionDataArray.count
         
         //初期データ設定。前画面から受け取ったquestionDataから値を取り出す
@@ -103,7 +103,7 @@ class QuestionViewController: UIViewController {
     }
     
     func goNextQuestion()  {
-        //問題文の取り出し  sharedInstance.nextQuestion ****
+        //問題文の取り出し  QuestionDataManeger.sharedInstance.nextQuestion ****
         guard let nextQuestion = QuestionDataManeger.sharedInstance.nextQuestion() else {
             //問題文に残りがない時 ＝ 最後の問題の時
             if let resultViewController = storyboard?.instantiateViewController(withIdentifier: "result") as? ResultViewController {

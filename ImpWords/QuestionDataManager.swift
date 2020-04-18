@@ -56,7 +56,7 @@ class QuestionDataManeger {
     private init(){
     }
     
-    //問題の読み込み　---------------------------------
+    //問題の読み込み　QuestionDataManeger.sharedInstance.loadQuestion() ****
     func loadQuestion()  {
         questionDataArray.removeAll()
         nowQuestionIndex = 0
@@ -84,7 +84,7 @@ class QuestionDataManeger {
         
     }
     
-    //次の問題を取り出す　---------------------------------
+    //問題文の取り出し  QuestionDataManeger.sharedInstance.nextQuestion() ****
     func nextQuestion() -> QuestionData? {
         if nowQuestionIndex < questionDataArray.count {
             let nextQuestion = questionDataArray[nowQuestionIndex]

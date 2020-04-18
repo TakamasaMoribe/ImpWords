@@ -16,13 +16,13 @@ class StartViewController: UIViewController {
     
     //次画面に移る前の処理
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //問題文の読み込み
+        //問題文の読み込み  sharedInstance.loadQuestion() ****
         QuestionDataManeger.sharedInstance.loadQuestion()
         //遷移先画面の呼び出し
         guard let nextViewController = segue.destination as? QuestionViewController else {
             return
         }
-        //問題文の取り出し
+        //問題文の取り出し  sharedInstance.nextQuestion() ****
         guard let questionData = QuestionDataManeger.sharedInstance.nextQuestion() else {
             return
         }
