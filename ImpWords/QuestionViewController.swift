@@ -12,6 +12,7 @@ import AudioToolbox
 class QuestionViewController: UIViewController {
     
     var questionData:QuestionData! //前画面より受け取るデータ
+    var nowQuestionIndex:Int = 0
     
     @IBOutlet weak var progressView: UIProgressView! //解答の進行状況
     
@@ -28,8 +29,26 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var trueAnswer: UILabel!          //不正解の時、正解を示す hide属性
     @IBOutlet weak var nextQuestionButton: UIButton! //次の問題へ進むボタン　 hide
     
-    @IBAction func clickResultButton(_ sender: Any) {
-    } //結果表示をクリックした時
+    @IBAction func clickResultButton(_ sender: Any) { //解答の途中で、結果表示をクリックした時
+        //問題のインデックスを保持して、結果画面に遷移する
+        //結果画面から戻るときに、インデックスをもとに戻す
+        //StoryboardのIdentifierに設定した値(result)を使って、ViewControllerを生成する
+        //presentメソッドは、セグエを利用せずに画面をモーダルで表示するメソッド
+         if let nextQuestionViewController = storyboard?.instantiateViewController(identifier: "result") as? QuestionViewController {
+             nextQuestionViewController.nowQuestionIndex = questionData.questionNo//現在の問題番号に入れる
+             //StoryboardのSegueを利用しない明示的な画面遷移処理
+             present(nextQuestionViewController,animated: true,completion: nil)
+         }
+    }
+// //       セグエを使って、問題番号の値を渡す
+//        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            if segue.identifier == "result" {
+//                let nextVC = segue.destination as! ResultViewController
+//                nextVC.nowQuestionIndex = questionData.questionNo //問題番号を現在の問題番号に入れる
+//                }
+//            }
+//
+        
     
     @IBAction func clickStopButton(_ sender: Any) {
     } // 中止ボタンをクリックした時  goToTittleと同じ動作

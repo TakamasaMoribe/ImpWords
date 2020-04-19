@@ -35,7 +35,7 @@ class ResultViewController: UIViewController {
     }
 
     
-    @IBAction func clickNextQuestionButton(_ sender: Any) { //次の問題へ戻るボタンをクリック
+    @IBAction func clickNextQuestionButton(_ sender: Any) { //出題画面へ戻るボタンをクリック
   
         //問題文の取り出し  QuestionDataManeger.sharedInstance.nextQuestion ****
 

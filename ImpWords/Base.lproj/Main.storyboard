@@ -180,7 +180,7 @@
                                 <state key="normal" title="結果表示"/>
                                 <connections>
                                     <action selector="clickResultButton:" destination="ebj-5J-WA2" eventType="touchUpInside" id="6G6-sN-eyT"/>
-                                    <segue destination="6Ea-oe-lPh" kind="show" id="Rmr-mA-fuC"/>
+                                    <segue destination="6Ea-oe-lPh" kind="show" id="aPj-uU-fAl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNO-Pi-6Mr">
