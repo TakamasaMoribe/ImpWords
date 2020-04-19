@@ -28,6 +28,12 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var trueAnswer: UILabel!          //不正解の時、正解を示す hide属性
     @IBOutlet weak var nextQuestionButton: UIButton! //次の問題へ進むボタン　 hide
     
+    @IBAction func clickResultButton(_ sender: Any) {
+    } //結果表示をクリックした時
+    
+    @IBAction func clickStopButton(_ sender: Any) {
+    } // 中止ボタンをクリックした時  goToTittleと同じ動作
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,16 +90,16 @@ class QuestionViewController: UIViewController {
     
     //正答の時
     func goCorrectAnimation()  {
-        AudioServicesPlayAlertSound(1025)//音を鳴らす
+        AudioServicesPlayAlertSound(1025) //正解音を鳴らす
         //正解のイメージとアニメーション
         UIView.animate(withDuration: 1.0, animations: {self.correctImageView.alpha = 1.0
-        }){(Bool) in self.goNextQuestion()//アニメーション後に次の問題へ進む
+        }){(Bool) in self.goNextQuestion() //アニメーション後に次の問題へ進む
         }
     }
     
     //誤答の時
     func goIncorrectAnimation()  {
-        AudioServicesPlayAlertSound(1006)//音を鳴らす
+        AudioServicesPlayAlertSound(1006) //誤答音を鳴らす
         //不正解のイメージとアニメーション
         UIView.animate(withDuration: 1.0, animations: {self.incorrectImageView.alpha = 1.0})
         {(Bool) in self.showCorrectAnswer() //正答を表示する
@@ -103,13 +109,14 @@ class QuestionViewController: UIViewController {
     //誤答の時には、正答を表示する
     func showCorrectAnswer()  {
         trueAnswer.isHidden = false//HIDDEN　解除
-        trueAnswer.text = "正解は:" + questionData.correctAnswer //
+        trueAnswer.text = "正解は:" + questionData.correctAnswer // 正答表示
         nextQuestionButton.isHidden = false//HIDDENを解除してボタンを表示する
     }
     
     @IBAction func tapNextButton(_ sender: Any) {
         goNextQuestion()//不正解時に次の問題へ進む
     }
+ 
     
     func goNextQuestion()  {
         //問題文の取り出し  QuestionDataManeger.sharedInstance.nextQuestion ****

@@ -164,9 +164,8 @@
                                     <action selector="tapNextButton:" destination="ebj-5J-WA2" eventType="touchUpInside" id="nTE-Iu-VDL"/>
                                 </connections>
                             </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Kp5-YC-qGP">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Kp5-YC-qGP">
                                 <rect key="frame" x="63" y="61" width="254" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="問題文です。当てはまる言葉を下の４つの中から選んで、クリックしてください。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cMM-es-7fV">
                                 <rect key="frame" x="16" y="71" width="343" height="116"/>
@@ -175,31 +174,56 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfi-0N-D5G">
+                                <rect key="frame" x="246" y="534" width="82" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="結果表示"/>
+                                <connections>
+                                    <action selector="clickResultButton:" destination="ebj-5J-WA2" eventType="touchUpInside" id="6G6-sN-eyT"/>
+                                    <segue destination="6Ea-oe-lPh" kind="show" id="Rmr-mA-fuC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNO-Pi-6Mr">
+                                <rect key="frame" x="69" y="534" width="41" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="中止"/>
+                                <connections>
+                                    <action selector="clickStopButton:" destination="ebj-5J-WA2" eventType="touchUpInside" id="GaN-1M-CGV"/>
+                                    <segue destination="bSO-r3-tRP" kind="unwind" unwindAction="goToTitle:" id="CFv-ob-ut8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="cMM-es-7fV" firstAttribute="top" secondItem="Kp5-YC-qGP" secondAttribute="bottom" constant="8" id="2Ky-Ku-SVo"/>
                             <constraint firstItem="mKt-49-5OO" firstAttribute="centerY" secondItem="9Jd-hs-hFV" secondAttribute="centerY" id="4Wq-Uk-TAJ"/>
                             <constraint firstItem="5HF-9z-Gc3" firstAttribute="top" secondItem="cMM-es-7fV" secondAttribute="bottom" constant="84" id="6eH-36-zlV"/>
                             <constraint firstItem="cMM-es-7fV" firstAttribute="top" secondItem="6nu-Zs-fxx" secondAttribute="bottom" constant="22" id="7Ah-MD-4DI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kp5-YC-qGP" secondAttribute="trailing" constant="42" id="AQT-M7-0zj"/>
                             <constraint firstItem="6nu-Zs-fxx" firstAttribute="top" secondItem="Lvr-oe-0NI" secondAttribute="top" constant="20" id="CDU-yp-0Et"/>
                             <constraint firstItem="9Jd-hs-hFV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mKt-49-5OO" secondAttribute="trailing" constant="8" symbolic="YES" id="Dlp-bs-OgI"/>
                             <constraint firstItem="m6a-Qj-Mno" firstAttribute="centerX" secondItem="kFN-ip-znc" secondAttribute="centerX" constant="-1" id="ErM-br-2Ri"/>
+                            <constraint firstItem="fNO-Pi-6Mr" firstAttribute="leading" secondItem="Lvr-oe-0NI" secondAttribute="leading" constant="69" id="FhH-23-Xo1"/>
                             <constraint firstItem="mKt-49-5OO" firstAttribute="leading" secondItem="6nu-Zs-fxx" secondAttribute="leading" id="Kxg-ht-LrP"/>
                             <constraint firstItem="mKt-49-5OO" firstAttribute="bottom" secondItem="9Jd-hs-hFV" secondAttribute="bottom" id="MrL-aN-wZg"/>
                             <constraint firstItem="2XG-b8-7sC" firstAttribute="bottom" secondItem="m6a-Qj-Mno" secondAttribute="bottom" id="MrY-el-EP0"/>
                             <constraint firstItem="cMM-es-7fV" firstAttribute="trailing" secondItem="kFN-ip-znc" secondAttribute="trailingMargin" id="PdJ-rd-JPU"/>
+                            <constraint firstItem="Kp5-YC-qGP" firstAttribute="leading" secondItem="6nu-Zs-fxx" secondAttribute="leading" id="QhR-M1-fpM"/>
                             <constraint firstItem="9Jd-hs-hFV" firstAttribute="top" secondItem="Lvr-oe-0NI" secondAttribute="top" constant="195" id="RgA-OQ-X9y"/>
                             <constraint firstItem="2XG-b8-7sC" firstAttribute="trailing" secondItem="m6a-Qj-Mno" secondAttribute="trailing" id="WhD-r1-15q"/>
                             <constraint firstItem="m6a-Qj-Mno" firstAttribute="centerX" secondItem="5HF-9z-Gc3" secondAttribute="centerX" id="bxo-cK-x2f"/>
                             <constraint firstItem="m6a-Qj-Mno" firstAttribute="leading" secondItem="Lvr-oe-0NI" secondAttribute="leading" constant="86" id="dqP-Rt-BB3"/>
                             <constraint firstItem="m6a-Qj-Mno" firstAttribute="centerY" secondItem="5HF-9z-Gc3" secondAttribute="centerY" id="hIj-D4-xSj"/>
+                            <constraint firstItem="Lvr-oe-0NI" firstAttribute="trailing" secondItem="Dfi-0N-D5G" secondAttribute="trailing" constant="47" id="jdq-QO-NMV"/>
                             <constraint firstItem="Lvr-oe-0NI" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6nu-Zs-fxx" secondAttribute="trailing" symbolic="YES" id="kW7-i4-CkK"/>
                             <constraint firstItem="Lvr-oe-0NI" firstAttribute="trailing" secondItem="9Jd-hs-hFV" secondAttribute="trailing" constant="34" id="l9X-UQ-rFq"/>
+                            <constraint firstItem="fNO-Pi-6Mr" firstAttribute="baseline" secondItem="Dfi-0N-D5G" secondAttribute="baseline" id="nUZ-GI-ewB"/>
                             <constraint firstItem="cMM-es-7fV" firstAttribute="leading" secondItem="kFN-ip-znc" secondAttribute="leadingMargin" id="oaB-FV-gyH"/>
                             <constraint firstItem="6nu-Zs-fxx" firstAttribute="leading" secondItem="Lvr-oe-0NI" secondAttribute="leading" constant="63" id="pvg-dW-oxk"/>
                             <constraint firstItem="m6a-Qj-Mno" firstAttribute="top" secondItem="cMM-es-7fV" secondAttribute="bottom" constant="99" id="qBD-ey-hD8"/>
                             <constraint firstItem="2XG-b8-7sC" firstAttribute="leading" secondItem="m6a-Qj-Mno" secondAttribute="leading" id="skd-NN-dZU"/>
                             <constraint firstItem="Lvr-oe-0NI" firstAttribute="bottom" secondItem="m6a-Qj-Mno" secondAttribute="bottom" constant="166" id="ySC-AX-NvK"/>
+                            <constraint firstItem="fNO-Pi-6Mr" firstAttribute="top" secondItem="m6a-Qj-Mno" secondAttribute="bottom" constant="53" id="ymw-vu-KwZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lvr-oe-0NI"/>
                     </view>
@@ -219,6 +243,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TmP-hg-ffb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="bSO-r3-tRP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="893.60000000000002" y="100.29985007496252"/>
         </scene>
@@ -227,7 +252,7 @@
             <objects>
                 <viewController storyboardIdentifier="result" id="6Ea-oe-lPh" customClass="ResultViewController" customModule="ImpWords" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JCW-ZZ-EsK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="eUV-s3-XST">
@@ -254,11 +279,20 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tah-0J-oI7">
-                                <rect key="frame" x="116" y="435" width="143" height="36"/>
+                                <rect key="frame" x="116" y="505" width="143" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="タイトルへ戻る"/>
                                 <connections>
                                     <segue destination="yzh-Yo-lTz" kind="unwind" unwindAction="goToTitle:" id="WMb-nn-qQr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQT-r5-S3I">
+                                <rect key="frame" x="118" y="406" width="143" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="出題画面に戻る"/>
+                                <connections>
+                                    <action selector="clickNextQuestionButton:" destination="6Ea-oe-lPh" eventType="touchUpInside" id="2DP-Wi-goF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -266,12 +300,13 @@
                         <constraints>
                             <constraint firstItem="eUV-s3-XST" firstAttribute="centerX" secondItem="JCW-ZZ-EsK" secondAttribute="centerX" id="8lb-Hd-6VT"/>
                             <constraint firstItem="Tah-0J-oI7" firstAttribute="leading" secondItem="xlf-fn-UOF" secondAttribute="leading" constant="116" id="AKR-og-tnD"/>
-                            <constraint firstItem="xlf-fn-UOF" firstAttribute="bottom" secondItem="Tah-0J-oI7" secondAttribute="bottom" constant="196" id="aeb-Ai-GRF"/>
+                            <constraint firstItem="xlf-fn-UOF" firstAttribute="bottom" secondItem="Tah-0J-oI7" secondAttribute="bottom" constant="106" id="aeb-Ai-GRF"/>
                             <constraint firstItem="xlf-fn-UOF" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Tah-0J-oI7" secondAttribute="trailing" symbolic="YES" id="c1H-2p-zQ4"/>
                             <constraint firstItem="eUV-s3-XST" firstAttribute="top" secondItem="xlf-fn-UOF" secondAttribute="top" constant="103" id="fnA-Fp-DTg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xlf-fn-UOF"/>
                     </view>
+                    <navigationItem key="navigationItem" id="gQk-wi-XUX"/>
                     <connections>
                         <outlet property="correctPercentLabel" destination="P6A-H1-IHu" id="SRi-hF-ElE"/>
                     </connections>

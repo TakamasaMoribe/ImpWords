@@ -86,9 +86,9 @@ class QuestionDataManeger {
     
     //問題文の取り出し  QuestionDataManeger.sharedInstance.nextQuestion() ****
     func nextQuestion() -> QuestionData? {
-        if nowQuestionIndex < questionDataArray.count {
+        if nowQuestionIndex < questionDataArray.count { //問題に残りがある時
             let nextQuestion = questionDataArray[nowQuestionIndex]
-            nowQuestionIndex += 1
+            nowQuestionIndex += 1 //次の問題へ
             return nextQuestion
         }
         return nil

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F46659A244BEA7500E1E0EF /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 7F466599244BEA7500E1E0EF /* readme.md */; };
 		7F5E062B2445743D0039AC76 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E062A2445743D0039AC76 /* StartViewController.swift */; };
 		7F5E062E244578130039AC76 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5E062D244578130039AC76 /* AudioToolbox.framework */; };
 		7F5E06312445849C0039AC76 /* incorrect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5E062F2445849B0039AC76 /* incorrect@2x.png */; };
@@ -24,7 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7F466599244BEA7500E1E0EF /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = readme.md; path = ../../Documents/readme.md; sourceTree = "<group>"; };
 		7F46659B244BEA7D00E1E0EF /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		7F5E062A2445743D0039AC76 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		7F5E062D244578130039AC76 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -66,7 +64,6 @@
 		7FDE59802444411100003916 = {
 			isa = PBXGroup;
 			children = (
-				7F466599244BEA7500E1E0EF /* readme.md */,
 				7FDE598B2444411100003916 /* ImpWords */,
 				7FDE598A2444411100003916 /* Products */,
 				7F5E062C244578130039AC76 /* Frameworks */,
@@ -165,7 +162,6 @@
 				7F5E06322445849C0039AC76 /* correct@2x.png in Resources */,
 				7F5E06312445849C0039AC76 /* incorrect@2x.png in Resources */,
 				7F5E063624459C410039AC76 /* question.csv in Resources */,
-				7F46659A244BEA7500E1E0EF /* readme.md in Resources */,
 				7FDE59942444411100003916 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
