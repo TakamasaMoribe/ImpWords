@@ -58,8 +58,8 @@ class QuestionDataManeger {
     
     //問題の読み込み　QuestionDataManeger.sharedInstance.loadQuestion() ****
     func loadQuestion()  {
-        questionDataArray.removeAll()
-        nowQuestionIndex = 0
+        questionDataArray.removeAll() //古いデータ配列を消去しておく
+        nowQuestionIndex = 0          //インデックスも初期化
         
         //問題ファイルのパスを指定する
         guard let csvFilePath = Bundle.main.path(forResource: "question", ofType: "csv") else {
@@ -70,11 +70,11 @@ class QuestionDataManeger {
         
         do {
             let csvStringData = try String(contentsOfFile: csvFilePath,encoding: String.Encoding.utf8)
-            csvStringData.enumerateLines(invoking: {(line,stop) in
-                let questionSourceDataArray = line.components(separatedBy: ",")
-                let questionData = QuestionData(questionSourceDataArray: questionSourceDataArray)
-                self.questionDataArray.append(questionData)
-                questionData.questionNo = self.questionDataArray.count
+            csvStringData.enumerateLines(invoking: {(line,stop) in //改行されるごとに分割する
+                let questionSourceDataArray = line.components(separatedBy: ",") //１行を","で分割して配列に入れる
+                let questionData = QuestionData(questionSourceDataArray: questionSourceDataArray)//１行分の配列
+                self.questionDataArray.append(questionData) //格納用の配列に、１行ずつ追加していく
+                questionData.questionNo = self.questionDataArray.count //問題文の行数に等しい
             })
             
         }catch let error {
