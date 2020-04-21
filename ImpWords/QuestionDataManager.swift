@@ -22,6 +22,7 @@ class QuestionData {
     var userChoiceAnswer:String = "" //ユーザーが選択した答
     var questionNo:Int = 0    //出題番号
 
+
     
     init(questionSourceDataArray:[String]) {
         qNo = questionSourceDataArray[0]           //問題番号
@@ -46,23 +47,30 @@ class QuestionData {
 
 
 class QuestionDataManeger {
+    var filename:String = ""  //問題ファイルの名前
+    
     //シングルトン  sharedInstance = QuestionDataManeger() ******
     static let sharedInstance = QuestionDataManeger()
+    
+    let singleton:Singleton = Singleton.sharedInstance//シングルトンインスタンス******
+    
     //問題を格納するための配列
     var questionDataArray = [QuestionData]()
     //現在の問題のインデックス
-    var  nowQuestionIndex:Int = 0
+    var nowQuestionIndex:Int = 0
     //シングルトンであることを保証するため
     private init(){
     }
+
     
     //問題の読み込み　QuestionDataManeger.sharedInstance.loadQuestion() ****
     func loadQuestion()  {
         questionDataArray.removeAll() //古いデータ配列を消去しておく
         nowQuestionIndex = 0          //インデックスも初期化
-        
+        let filename = singleton.getItem() //ファイル名をシングルトンから読み込む
+        print("3loadQuestion:\(filename)")
         //問題ファイルのパスを指定する　セクメンティッドコントロールから取得する
-        guard let csvFilePath = Bundle.main.path(forResource: "１年動物", ofType: "csv") else {
+        guard let csvFilePath = Bundle.main.path(forResource: filename, ofType: "csv") else {
             print("ファイルが存在しません")
             return
         }

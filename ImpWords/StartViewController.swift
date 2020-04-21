@@ -9,6 +9,8 @@
 import UIKit
 
 class StartViewController: UIViewController {
+    
+        let singleton:Singleton = Singleton.sharedInstance//シングルトンインスタンス******
 
     @IBOutlet weak var gradeSegment: UISegmentedControl!
 
@@ -20,6 +22,24 @@ class StartViewController: UIViewController {
     
     //次画面に移る前の処理
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+  
+        //セグメンティッドコントロールから問題ファイル名を取得する
+         var filename:String //ファイル名（拡張子を除いた本体のみ）
+         //選択されているセグメントのインデックス（学年名）
+         let selectedGradeIndex = gradeSegment.selectedSegmentIndex
+         //選択されたインデックスの文字列を取得してファイル名（学年名）に設定する
+         let text1 = gradeSegment.titleForSegment(at: selectedGradeIndex)
+         //（単元名）
+         let selectedUnitIndex = unitSegment.selectedSegmentIndex
+         //（単元名）
+         let text2 = unitSegment.titleForSegment(at: selectedUnitIndex)
+         //ファイル名の生成　学年名＋単元名
+         filename = text1! + text2!
+         print("1:\(filename)")
+         singleton.saveItem(item: filename) //ファイル名を　シングルトンへ保存
+
+                 print("2:\(filename)")
+        
         //問題文の読み込み  sharedInstance.loadQuestion() ****
         QuestionDataManeger.sharedInstance.loadQuestion()
         //遷移先画面の呼び出し
@@ -33,27 +53,20 @@ class StartViewController: UIViewController {
         //問題文のセット
         nextViewController.questionData = questionData
         
-        
-        //セグメンティッドコントロールから問題ファイル名を取得する
-        //選択されているセグメントのインデックス（学年名）
-        let selectedGradeIndex = gradeSegment.selectedSegmentIndex
-        //選択されたインデックスの文字列を取得してファイル名（学年名）に設定する
-        let text = gradeSegment.titleForSegment(at: selectedGradeIndex)
-        print(text!)
-        
-        //（単元名）
-        let selectedUnitIndex = unitSegment.selectedSegmentIndex
-        //（単元名）
-        let text2 = unitSegment.titleForSegment(at: selectedUnitIndex)
-        print(text2!)
-        
-        //ファイル名を生成する　学年名＋単元名
-        let filename = text! + text2!
-        print(filename)
-        
+ 
+//       //セグエを使って、セグメンティッドコントロールの値を次画面に渡す
+//        if segue.identifier == "goToQuestion" {
+//            let nextVC = segue.destination as! QuestionViewController
+//            nextVC.filename = String(filename)
+//            }
     }
     
     //タイトルに戻ってくるときに呼び出される処理
     @IBAction func goToTitle(_ segue:UIStoryboardSegue){
     }
+
+    
 }
+
+
+

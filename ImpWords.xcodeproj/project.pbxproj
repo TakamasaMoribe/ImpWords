@@ -14,6 +14,7 @@
 		7F5E0634244596BD0039AC76 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E0633244596BD0039AC76 /* ResultViewController.swift */; };
 		7F5E063624459C410039AC76 /* １年植物.csv in Resources */ = {isa = PBXBuildFile; fileRef = 7F5E063524459C410039AC76 /* １年植物.csv */; };
 		7F88C309244EBA4A00F8ABA3 /* １年動物.csv in Resources */ = {isa = PBXBuildFile; fileRef = 7F88C308244EBA4A00F8ABA3 /* １年動物.csv */; };
+		7F88C30B244ED74800F8ABA3 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F88C30A244ED74800F8ABA3 /* Singleton.swift */; };
 		7FDE598D2444411100003916 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDE598C2444411100003916 /* AppDelegate.swift */; };
 		7FDE598F2444411100003916 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDE598E2444411100003916 /* SceneDelegate.swift */; };
 		7FDE59942444411100003916 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FDE59922444411100003916 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		7F5E0633244596BD0039AC76 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		7F5E063524459C410039AC76 /* １年植物.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "１年植物.csv"; sourceTree = "<group>"; };
 		7F88C308244EBA4A00F8ABA3 /* １年動物.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "１年動物.csv"; sourceTree = "<group>"; };
+		7F88C30A244ED74800F8ABA3 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		7FDE59892444411100003916 /* ImpWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImpWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FDE598C2444411100003916 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FDE598E2444411100003916 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				7FDE59922444411100003916 /* Main.storyboard */,
 				7FDE59A424444A3400003916 /* QuestionDataManager.swift */,
 				7FDE59A22444456600003916 /* QuestionViewController.swift */,
+				7F88C30A244ED74800F8ABA3 /* Singleton.swift */,
 				7F5E0633244596BD0039AC76 /* ResultViewController.swift */,
 				7FDE59952444411400003916 /* Assets.xcassets */,
 				7F5E063524459C410039AC76 /* １年植物.csv */,
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FDE598D2444411100003916 /* AppDelegate.swift in Sources */,
+				7F88C30B244ED74800F8ABA3 /* Singleton.swift in Sources */,
 				7FDE59A32444456700003916 /* QuestionViewController.swift in Sources */,
 				7FDE59A524444A3400003916 /* QuestionDataManager.swift in Sources */,
 				7FDE598F2444411100003916 /* SceneDelegate.swift in Sources */,

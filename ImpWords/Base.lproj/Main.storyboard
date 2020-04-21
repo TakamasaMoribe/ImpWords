@@ -61,7 +61,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="START"/>
                                 <connections>
-                                    <segue destination="ebj-5J-WA2" kind="show" id="aCu-8E-Nbr"/>
+                                    <segue destination="ebj-5J-WA2" kind="show" identifier="goToQuestion" id="aCu-8E-Nbr"/>
                                 </connections>
                             </button>
                         </subviews>

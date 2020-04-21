@@ -11,6 +11,7 @@ import AudioToolbox
 
 class QuestionViewController: UIViewController {
     
+    var filename:String = ""
     var questionData:QuestionData! //前画面より受け取るデータ
     var nowQuestionIndex:Int = 0
     
