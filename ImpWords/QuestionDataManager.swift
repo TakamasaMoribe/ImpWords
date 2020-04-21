@@ -69,8 +69,8 @@ class QuestionDataManeger {
         //問題ファイルからデータを読み込む
         //クロージャ:関数の実行結果を次の処理で続けて使用する関数
         //enumerateLinesは改行（\n (バックスラッシュ + n))単位で文字列を読み込むメソッド
-        //stopはそのままの意味でstop変数にtrueを代入した時にループが終了します。
-        //lineやstopは決められた名前ではなく、自分の好きな名前を付けられます。
+        //stopはそのままの意味でstop変数にtrueを代入した時にループが終了する
+        //lineやstopは決められた名前ではなく、自分の好きな名前を付けられる
         do {
             let csvStringData = try String(contentsOfFile: csvFilePath,encoding: String.Encoding.utf8)
             csvStringData.enumerateLines(invoking: {(line,stop) in //改行されるごとに分割する
