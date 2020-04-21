@@ -61,8 +61,8 @@ class QuestionDataManeger {
         questionDataArray.removeAll() //古いデータ配列を消去しておく
         nowQuestionIndex = 0          //インデックスも初期化
         
-        //問題ファイルのパスを指定する
-        guard let csvFilePath = Bundle.main.path(forResource: "question", ofType: "csv") else {
+        //問題ファイルのパスを指定する　セクメンティッドコントロールから取得する
+        guard let csvFilePath = Bundle.main.path(forResource: "１年動物", ofType: "csv") else {
             print("ファイルが存在しません")
             return
         }
