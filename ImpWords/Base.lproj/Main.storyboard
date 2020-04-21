@@ -174,15 +174,6 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfi-0N-D5G">
-                                <rect key="frame" x="246" y="534" width="82" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="結果表示"/>
-                                <connections>
-                                    <action selector="clickResultButton:" destination="ebj-5J-WA2" eventType="touchUpInside" id="6G6-sN-eyT"/>
-                                    <segue destination="6Ea-oe-lPh" kind="show" id="aPj-uU-fAl"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNO-Pi-6Mr">
                                 <rect key="frame" x="69" y="534" width="41" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -214,10 +205,8 @@
                             <constraint firstItem="m6a-Qj-Mno" firstAttribute="centerX" secondItem="5HF-9z-Gc3" secondAttribute="centerX" id="bxo-cK-x2f"/>
                             <constraint firstItem="m6a-Qj-Mno" firstAttribute="leading" secondItem="Lvr-oe-0NI" secondAttribute="leading" constant="86" id="dqP-Rt-BB3"/>
                             <constraint firstItem="m6a-Qj-Mno" firstAttribute="centerY" secondItem="5HF-9z-Gc3" secondAttribute="centerY" id="hIj-D4-xSj"/>
-                            <constraint firstItem="Lvr-oe-0NI" firstAttribute="trailing" secondItem="Dfi-0N-D5G" secondAttribute="trailing" constant="47" id="jdq-QO-NMV"/>
                             <constraint firstItem="Lvr-oe-0NI" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6nu-Zs-fxx" secondAttribute="trailing" symbolic="YES" id="kW7-i4-CkK"/>
                             <constraint firstItem="Lvr-oe-0NI" firstAttribute="trailing" secondItem="9Jd-hs-hFV" secondAttribute="trailing" constant="34" id="l9X-UQ-rFq"/>
-                            <constraint firstItem="fNO-Pi-6Mr" firstAttribute="baseline" secondItem="Dfi-0N-D5G" secondAttribute="baseline" id="nUZ-GI-ewB"/>
                             <constraint firstItem="cMM-es-7fV" firstAttribute="leading" secondItem="kFN-ip-znc" secondAttribute="leadingMargin" id="oaB-FV-gyH"/>
                             <constraint firstItem="6nu-Zs-fxx" firstAttribute="leading" secondItem="Lvr-oe-0NI" secondAttribute="leading" constant="63" id="pvg-dW-oxk"/>
                             <constraint firstItem="m6a-Qj-Mno" firstAttribute="top" secondItem="cMM-es-7fV" secondAttribute="bottom" constant="99" id="qBD-ey-hD8"/>
@@ -252,7 +241,7 @@
             <objects>
                 <viewController storyboardIdentifier="result" id="6Ea-oe-lPh" customClass="ResultViewController" customModule="ImpWords" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JCW-ZZ-EsK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="eUV-s3-XST">
@@ -279,7 +268,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tah-0J-oI7">
-                                <rect key="frame" x="116" y="505" width="143" height="36"/>
+                                <rect key="frame" x="116" y="525" width="143" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="タイトルへ戻る"/>
                                 <connections>
@@ -293,6 +282,7 @@
                                 <state key="normal" title="出題画面に戻る"/>
                                 <connections>
                                     <action selector="clickNextQuestionButton:" destination="6Ea-oe-lPh" eventType="touchUpInside" id="2DP-Wi-goF"/>
+                                    <segue destination="ebj-5J-WA2" kind="show" id="3F8-fH-eaM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -317,6 +307,9 @@
             <point key="canvasLocation" x="1573" y="102"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3F8-fH-eaM"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="correct" width="202" height="202"/>
         <image name="incorrect" width="201" height="201"/>

@@ -11,9 +11,10 @@ import UIKit
 class ResultViewController: UIViewController {
     
     //現在の問題のインデックス
-    var  nowQuestionIndex:Int = 0
+ //   var  nowQuestionIndex:Int = 0
     
     @IBOutlet weak var correctPercentLabel: UILabel!
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,20 +37,21 @@ class ResultViewController: UIViewController {
 
     
     @IBAction func clickNextQuestionButton(_ sender: Any) { //出題画面へ戻るボタンをクリック
-  
-        //問題文の取り出し  QuestionDataManeger.sharedInstance.nextQuestion ****
-
-         guard let nextQuestion = QuestionDataManeger.sharedInstance.nextQuestion()else {
-             return
-         }
-         //次の問題文を表示する
-         if let nextQuestionViewController = storyboard?.instantiateViewController(identifier: "question") as? QuestionViewController {
-             nextQuestionViewController.questionData = nextQuestion
-             //StoryboardのSegueを利用しない明示的な画面遷移処理
-             present(nextQuestionViewController,animated: true,completion: nil)
-         }
-        
     }
-    
+    //出題画面に移る前の処理
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //問題文の読み込み  sharedInstance.loadQuestion() ****
+        QuestionDataManeger.sharedInstance.loadQuestion()
+        //遷移先画面の呼び出し
+        guard let nextViewController = segue.destination as? QuestionViewController else {
+                return
+        }
+        //問題文の取り出し  sharedInstance.nextQuestion() ****
+        guard let questionData = QuestionDataManeger.sharedInstance.nextQuestion() else {
+                return
+        }
+        //問題文のセット
+        nextViewController.questionData = questionData
+    }
     
 }
