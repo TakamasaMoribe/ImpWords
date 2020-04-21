@@ -155,15 +155,9 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="correct" translatesAutoresizingMaskIntoConstraints="NO" id="2XG-b8-7sC">
                                 <rect key="frame" x="86" y="279" width="201" height="202"/>
                             </imageView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKt-49-5OO">
-                                <rect key="frame" x="63" y="195" width="41" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Jd-hs-hFV">
-                                <rect key="frame" x="264" y="195" width="77" height="30"/>
-                                <state key="normal" title="次の問いへ"/>
+                                <rect key="frame" x="310" y="195" width="31" height="30"/>
+                                <state key="normal" title="次へ"/>
                                 <connections>
                                     <action selector="tapNextButton:" destination="ebj-5J-WA2" eventType="touchUpInside" id="nTE-Iu-VDL"/>
                                 </connections>
@@ -187,6 +181,12 @@
                                     <segue destination="bSO-r3-tRP" kind="unwind" unwindAction="goToTitle:" id="CFv-ob-ut8"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKt-49-5OO">
+                                <rect key="frame" x="36" y="195" width="41" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -199,7 +199,7 @@
                             <constraint firstItem="9Jd-hs-hFV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mKt-49-5OO" secondAttribute="trailing" constant="8" symbolic="YES" id="Dlp-bs-OgI"/>
                             <constraint firstItem="m6a-Qj-Mno" firstAttribute="centerX" secondItem="kFN-ip-znc" secondAttribute="centerX" constant="-1" id="ErM-br-2Ri"/>
                             <constraint firstItem="fNO-Pi-6Mr" firstAttribute="leading" secondItem="Lvr-oe-0NI" secondAttribute="leading" constant="69" id="FhH-23-Xo1"/>
-                            <constraint firstItem="mKt-49-5OO" firstAttribute="leading" secondItem="6nu-Zs-fxx" secondAttribute="leading" id="Kxg-ht-LrP"/>
+                            <constraint firstItem="mKt-49-5OO" firstAttribute="leading" secondItem="6nu-Zs-fxx" secondAttribute="leading" constant="-27" id="Kxg-ht-LrP"/>
                             <constraint firstItem="mKt-49-5OO" firstAttribute="bottom" secondItem="9Jd-hs-hFV" secondAttribute="bottom" id="MrL-aN-wZg"/>
                             <constraint firstItem="2XG-b8-7sC" firstAttribute="bottom" secondItem="m6a-Qj-Mno" secondAttribute="bottom" id="MrY-el-EP0"/>
                             <constraint firstItem="cMM-es-7fV" firstAttribute="trailing" secondItem="kFN-ip-znc" secondAttribute="trailingMargin" id="PdJ-rd-JPU"/>
@@ -208,6 +208,7 @@
                             <constraint firstItem="2XG-b8-7sC" firstAttribute="trailing" secondItem="m6a-Qj-Mno" secondAttribute="trailing" id="WhD-r1-15q"/>
                             <constraint firstItem="m6a-Qj-Mno" firstAttribute="centerX" secondItem="5HF-9z-Gc3" secondAttribute="centerX" id="bxo-cK-x2f"/>
                             <constraint firstItem="m6a-Qj-Mno" firstAttribute="leading" secondItem="Lvr-oe-0NI" secondAttribute="leading" constant="86" id="dqP-Rt-BB3"/>
+                            <constraint firstItem="Lvr-oe-0NI" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fNO-Pi-6Mr" secondAttribute="trailing" symbolic="YES" id="dtL-m0-WYq"/>
                             <constraint firstItem="m6a-Qj-Mno" firstAttribute="centerY" secondItem="5HF-9z-Gc3" secondAttribute="centerY" id="hIj-D4-xSj"/>
                             <constraint firstItem="Lvr-oe-0NI" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6nu-Zs-fxx" secondAttribute="trailing" symbolic="YES" id="kW7-i4-CkK"/>
                             <constraint firstItem="Lvr-oe-0NI" firstAttribute="trailing" secondItem="9Jd-hs-hFV" secondAttribute="trailing" constant="34" id="l9X-UQ-rFq"/>

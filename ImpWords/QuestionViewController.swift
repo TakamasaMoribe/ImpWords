@@ -11,9 +11,8 @@ import AudioToolbox
 
 class QuestionViewController: UIViewController {
     
-    var filename:String = ""
+    var filename:String = ""       //問題データのCSVファイル
     var questionData:QuestionData! //前画面より受け取るデータ
-    var nowQuestionIndex:Int = 0
     
     @IBOutlet weak var progressView: UIProgressView! //解答の進行状況
     
