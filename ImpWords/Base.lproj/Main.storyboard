@@ -41,8 +41,8 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="R3I-Om-t2K">
                                 <rect key="frame" x="63" y="374" width="249" height="32"/>
                                 <segments>
-                                    <segment title="生物"/>
-                                    <segment title="地学"/>
+                                    <segment title="植物"/>
+                                    <segment title="動物"/>
                                     <segment title="化学"/>
                                     <segment title="物理"/>
                                 </segments>
@@ -86,6 +86,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="gradeSegment" destination="Hsw-sL-94x" id="egn-I4-iFH"/>
+                        <outlet property="unitSegment" destination="R3I-Om-t2K" id="t7u-Je-FJO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -308,7 +312,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3F8-fH-eaM"/>
+        <segue reference="aCu-8E-Nbr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="correct" width="202" height="202"/>

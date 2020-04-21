@@ -10,6 +10,10 @@ import UIKit
 
 class StartViewController: UIViewController {
 
+    @IBOutlet weak var gradeSegment: UISegmentedControl!
+
+    @IBOutlet weak var unitSegment: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -28,6 +32,25 @@ class StartViewController: UIViewController {
         }
         //問題文のセット
         nextViewController.questionData = questionData
+        
+        
+        //セグメンティッドコントロールから問題ファイル名を取得する
+        //選択されているセグメントのインデックス（学年名）
+        let selectedGradeIndex = gradeSegment.selectedSegmentIndex
+        //選択されたインデックスの文字列を取得してファイル名（学年名）に設定する
+        let text = gradeSegment.titleForSegment(at: selectedGradeIndex)
+        print(text!)
+        
+        //（単元名）
+        let selectedUnitIndex = unitSegment.selectedSegmentIndex
+        //（単元名）
+        let text2 = unitSegment.titleForSegment(at: selectedUnitIndex)
+        print(text2!)
+        
+        //ファイル名を生成する　学年名＋単元名
+        let filename = text! + text2!
+        print(filename)
+        
     }
     
     //タイトルに戻ってくるときに呼び出される処理
