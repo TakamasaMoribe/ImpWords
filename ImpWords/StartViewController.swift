@@ -35,11 +35,8 @@ class StartViewController: UIViewController {
          let text2 = unitSegment.titleForSegment(at: selectedUnitIndex)
          //ファイル名の生成　学年名＋単元名
          filename = text1! + text2!
-         print("1:\(filename)")
-         singleton.saveItem(item: filename) //ファイル名を　シングルトンへ保存
+         singleton.saveItem(item: filename) //ファイル名を　シングルトンへ保存　読み込みで使用
 
-                 print("2:\(filename)")
-        
         //問題文の読み込み  sharedInstance.loadQuestion() ****
         QuestionDataManeger.sharedInstance.loadQuestion()
         //遷移先画面の呼び出し

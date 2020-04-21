@@ -51,8 +51,7 @@ class QuestionDataManeger {
     
     //シングルトン  sharedInstance = QuestionDataManeger() ******
     static let sharedInstance = QuestionDataManeger()
-    
-    let singleton:Singleton = Singleton.sharedInstance//シングルトンインスタンス******
+
     
     //問題を格納するための配列
     var questionDataArray = [QuestionData]()
@@ -67,8 +66,8 @@ class QuestionDataManeger {
     func loadQuestion()  {
         questionDataArray.removeAll() //古いデータ配列を消去しておく
         nowQuestionIndex = 0          //インデックスも初期化
+        let singleton:Singleton = Singleton.sharedInstance//ファイル名用のシングルトン******
         let filename = singleton.getItem() //ファイル名をシングルトンから読み込む
-        print("3loadQuestion:\(filename)")
         //問題ファイルのパスを指定する　セクメンティッドコントロールから取得する
         guard let csvFilePath = Bundle.main.path(forResource: filename, ofType: "csv") else {
             print("ファイルが存在しません")
