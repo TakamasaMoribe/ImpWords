@@ -47,50 +47,32 @@ class QuestionData {
 
 
 class QuestionDataManeger {
-    
-
-    
+        
     var filename:String = ""  //問題ファイルの名前
     
     //シングルトン  sharedInstance = QuestionDataManeger() ******
     static let sharedInstance = QuestionDataManeger()
-
     
     //問題を格納するための配列
     var questionDataArray = [QuestionData]()
+    var tempQuestionArray:Array<String> = [] //一時的に保管する配列
+    
     //現在の問題のインデックス
     var nowQuestionIndex:Int = 0
     //シングルトンであることを保証するため
     private init(){
     }
 
- 
-    
-    
     //問題の読み込み　QuestionDataManeger.sharedInstance.loadQuestion() ****
     func loadQuestion()  {
         questionDataArray.removeAll() //古いデータ配列を消去しておく
         nowQuestionIndex = 0          //インデックスも初期化
         let singleton:Singleton = Singleton.sharedInstance//ファイル名用のシングルトン******
         let filename = singleton.getItem() //ファイル名をシングルトンから読み込む
+        
         //問題ファイルのパスを指定する　セクメンティッドコントロールから取得する
-        
-//        do {
-//            try print("error");
-//        } catch {
-//            print("エラーが発生しました")
-//        }
-        
-        
-        //指定のファイルが無ければ中断する
-        let filemanager = FileManager.default
-//        guard (filemanager.fileExists(atPath: filename) == true) else {
-//                       print("ファイルが見つかりません")//この後のエラー処理が必要
-//            return
-//        }
-        
         guard let csvFilePath = Bundle.main.path(forResource: filename, ofType: "csv") else {
-            print("ファイルが存在しません")//エラー処理が必要
+            print("ファイルが存在しません")//エラー処理が欲しい
             return
         }
         //問題ファイルからデータを読み込む
@@ -102,15 +84,49 @@ class QuestionDataManeger {
             let csvStringData = try String(contentsOfFile: csvFilePath,encoding: String.Encoding.utf8)
             csvStringData.enumerateLines(invoking: {(line,stop) in //改行されるごとに分割する
                 let questionSourceDataArray = line.components(separatedBy: ",") //１行を","で分割して配列に入れる
+//print("questionSourceDataArray\(questionSourceDataArray)") //１行分の配列
                 let questionData = QuestionData(questionSourceDataArray: questionSourceDataArray)//１行分の配列
+//print("quetionData:\(questionData.question)")//プロパティ（配列の要素）を取り出す
                 self.questionDataArray.append(questionData) //格納用の配列に、１行ずつ追加していく
-                questionData.questionNo = self.questionDataArray.count //問題文の行数に等しい
+
+//print(self.questionDataArray[0])
+//self.tempQuestionArray.append(contentsOf: questionSourceDataArray)
+                questionData.questionNo = self.questionDataArray.count //問題ファイルの行数に等しい
+
+                
+//print("t0:\(questionSourceDataArray[0])")
+//print("t1:\(questionSourceDataArray[1])")
+//print("t2:\(questionSourceDataArray[2])")
+
             })
+
+            //シャッフル
+            let max = questionDataArray.count //問題の総数＝問題ファイルの行数
+print(max)
+//
+//                var tempArray:[Int] = [] //自然数を入れておく配列
+//            for i in 1...max {
+//                tempArray.append(i) //配列に、自然数を追加しておく
+//            }
+//            tempArray.shuffle()  //配列のインデックスとして使う自然数をシャッフルする
+//
+//            var shuffledArray:Array<Array<String>> = [[""]] //二重配列の初期化
+//            for i in 0...max {
+//        //        shuffledArray.append(questionDataArray[tempArray[i]])
+//            }
             
         }catch let error {
             print("ファイル読み込みエラー:\(error)")
             return
         }
+
+print(questionDataArray[1].qNo)
+print(questionDataArray[1].question)
+print(questionDataArray[1].correctAnswer)
+print(questionDataArray[2].qNo)
+print(questionDataArray[2].question)
+print(questionDataArray[2].correctAnswer)
+print("loadQuestion")
         
     }
     
