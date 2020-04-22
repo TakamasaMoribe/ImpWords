@@ -9,10 +9,7 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-    
-    //現在の問題のインデックス
- //   var  nowQuestionIndex:Int = 0
-    
+        
     @IBOutlet weak var correctPercentLabel: UILabel!
  
     

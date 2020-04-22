@@ -11,7 +11,7 @@ import UIKit
 //１つの問題に関する情報
 class QuestionData {
     
-    var qNo:String            //問題番号 固有の番号　ｃｓｖファイルに記載されている
+    var questionNo:String     //問題番号 固有の番号　ｃｓｖファイルに記載されている
     var question:String       //問題文
     var correctAnswer:String  //正解
     var answer1:String        //選択肢１
@@ -20,12 +20,12 @@ class QuestionData {
     var answer4:String        //選択肢４
     
     var userChoiceAnswer:String = "" //ユーザーが選択した答
-    var questionNo:Int = 0    //出題番号
+//    var questionNo:Int = 0    //出題番号
 
 
     
     init(questionSourceDataArray:[String]) {
-        qNo = questionSourceDataArray[0]           //問題番号
+        questionNo = questionSourceDataArray[0]    //問題番号
         question = questionSourceDataArray[1]      //問題文
         correctAnswer = questionSourceDataArray[2] //正解
         answer1 = questionSourceDataArray[3]       //選択肢１
@@ -91,41 +91,25 @@ class QuestionDataManeger {
 
 //print(self.questionDataArray[0])
 //self.tempQuestionArray.append(contentsOf: questionSourceDataArray)
-                questionData.questionNo = self.questionDataArray.count //問題ファイルの行数に等しい
+             //   questionData.questionNo = self.questionDataArray.count//??? //問題ファイルの行数に等しい???
+            }) //クロージャここまで
 
-                
-//print("t0:\(questionSourceDataArray[0])")
-//print("t1:\(questionSourceDataArray[1])")
-//print("t2:\(questionSourceDataArray[2])")
-
-            })
-
-            //シャッフル
-            let max = questionDataArray.count //問題の総数＝問題ファイルの行数
-print(max)
-//
-//                var tempArray:[Int] = [] //自然数を入れておく配列
-//            for i in 1...max {
-//                tempArray.append(i) //配列に、自然数を追加しておく
-//            }
-//            tempArray.shuffle()  //配列のインデックスとして使う自然数をシャッフルする
-//
-//            var shuffledArray:Array<Array<String>> = [[""]] //二重配列の初期化
-//            for i in 0...max {
-//        //        shuffledArray.append(questionDataArray[tempArray[i]])
-//            }
             
         }catch let error {
             print("ファイル読み込みエラー:\(error)")
             return
         }
-
-print(questionDataArray[1].qNo)
+        
+        //問題の出題順をシャッフルする　配列内で要素をシャッフルする
+        questionDataArray.shuffle()//これだけでOKのようです？
+        
+        
+print(questionDataArray[0].questionNo)
+print(questionDataArray[0].question)
+print(questionDataArray[0].correctAnswer)
+print(questionDataArray[1].questionNo)
 print(questionDataArray[1].question)
 print(questionDataArray[1].correctAnswer)
-print(questionDataArray[2].qNo)
-print(questionDataArray[2].question)
-print(questionDataArray[2].correctAnswer)
 print("loadQuestion")
         
     }

@@ -11,8 +11,10 @@ import AudioToolbox
 
 class QuestionViewController: UIViewController {
     
-    var filename:String = ""       //問題データのCSVファイル
+    var filename:String = ""       //問題データのCSVファイル名本体部分
     var questionData:QuestionData! //前画面より受け取るデータ
+    var questionNo:Int = 0         //現在の出題数
+    
     
     @IBOutlet weak var progressView: UIProgressView! //解答の進行状況
     
@@ -38,12 +40,14 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         //問題数の取得  QuestionDataManeger.sharedInstance.questionDataArray****
         let questionCount = QuestionDataManeger.sharedInstance.questionDataArray.count
         
+        questionNo += 1
         //初期データ設定。前画面から受け取ったquestionDataから値を取り出す
 
-        questionNoLabel.text = "Q.\(questionData.questionNo)" + "/\(questionCount)"
+        questionNoLabel.text = "Q.\(questionNo)" + "/\(questionCount)"
         questionTextView.text = questionData.question //問題文
         answer1Button.setTitle(questionData.answer1, for: UIControl.State.normal)
         answer2Button.setTitle(questionData.answer2, for: UIControl.State.normal)
@@ -53,7 +57,7 @@ class QuestionViewController: UIViewController {
     
         //解答の進行状況を表示する
             var degree:Float = 0.0 //進み具合
-            degree = Float(questionData.questionNo) / Float(questionCount)
+            degree = Float(questionNo) / Float(questionCount)
             progressView.progress = degree //progressView を動かす
         
     }
