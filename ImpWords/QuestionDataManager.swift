@@ -6,7 +6,7 @@
 //  Copyright © 2020 森部高昌. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 //１つの問題に関する情報
 class QuestionData {
@@ -47,6 +47,9 @@ class QuestionData {
 
 
 class QuestionDataManeger {
+    
+
+    
     var filename:String = ""  //問題ファイルの名前
     
     //シングルトン  sharedInstance = QuestionDataManeger() ******
@@ -61,6 +64,8 @@ class QuestionDataManeger {
     private init(){
     }
 
+ 
+    
     
     //問題の読み込み　QuestionDataManeger.sharedInstance.loadQuestion() ****
     func loadQuestion()  {
@@ -69,8 +74,23 @@ class QuestionDataManeger {
         let singleton:Singleton = Singleton.sharedInstance//ファイル名用のシングルトン******
         let filename = singleton.getItem() //ファイル名をシングルトンから読み込む
         //問題ファイルのパスを指定する　セクメンティッドコントロールから取得する
+        
+//        do {
+//            try print("error");
+//        } catch {
+//            print("エラーが発生しました")
+//        }
+        
+        
+        //指定のファイルが無ければ中断する
+        let filemanager = FileManager.default
+//        guard (filemanager.fileExists(atPath: filename) == true) else {
+//                       print("ファイルが見つかりません")//この後のエラー処理が必要
+//            return
+//        }
+        
         guard let csvFilePath = Bundle.main.path(forResource: filename, ofType: "csv") else {
-            print("ファイルが存在しません")
+            print("ファイルが存在しません")//エラー処理が必要
             return
         }
         //問題ファイルからデータを読み込む

@@ -10,11 +10,11 @@ import UIKit
 
 class StartViewController: UIViewController {
     
-        let singleton:Singleton = Singleton.sharedInstance//シングルトンインスタンス******
+    let singleton:Singleton = Singleton.sharedInstance//シングルトンインスタンス******
 
-    @IBOutlet weak var gradeSegment: UISegmentedControl!
+    @IBOutlet weak var gradeSegment: UISegmentedControl! //学年名
 
-    @IBOutlet weak var unitSegment: UISegmentedControl!
+    @IBOutlet weak var unitSegment: UISegmentedControl!  //単元名
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,13 +49,6 @@ class StartViewController: UIViewController {
         }
         //問題文のセット
         nextViewController.questionData = questionData
-        
- 
-//       //セグエを使って、セグメンティッドコントロールの値を次画面に渡す
-//        if segue.identifier == "goToQuestion" {
-//            let nextVC = segue.destination as! QuestionViewController
-//            nextVC.filename = String(filename)
-//            }
     }
     
     //タイトルに戻ってくるときに呼び出される処理
