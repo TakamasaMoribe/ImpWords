@@ -55,7 +55,6 @@ class QuestionDataManeger {
     
     //問題を格納するための配列
     var questionDataArray = [QuestionData]()
-    var tempQuestionArray:Array<String> = [] //一時的に保管する配列
     
     //現在の問題のインデックス
     var nowQuestionIndex:Int = 0
@@ -84,24 +83,17 @@ class QuestionDataManeger {
             let csvStringData = try String(contentsOfFile: csvFilePath,encoding: String.Encoding.utf8)
             csvStringData.enumerateLines(invoking: {(line,stop) in //改行されるごとに分割する
                 let questionSourceDataArray = line.components(separatedBy: ",") //１行を","で分割して配列に入れる
-//print("questionSourceDataArray\(questionSourceDataArray)") //１行分の配列
                 let questionData = QuestionData(questionSourceDataArray: questionSourceDataArray)//１行分の配列
-//print("quetionData:\(questionData.question)")//プロパティ（配列の要素）を取り出す
                 self.questionDataArray.append(questionData) //格納用の配列に、１行ずつ追加していく
-
-//print(self.questionDataArray[0])
-//self.tempQuestionArray.append(contentsOf: questionSourceDataArray)
-             //   questionData.questionNo = self.questionDataArray.count//??? //問題ファイルの行数に等しい???
-            }) //クロージャここまで
-
+                }) //invokingからのクロージャここまで
             
-        }catch let error {
-            print("ファイル読み込みエラー:\(error)")
-            return
-        }
+            }catch let error {
+                print("ファイル読み込みエラー:\(error)")
+                return
+        } //do節ここまで
         
         //問題の出題順をシャッフルする　配列内で要素をシャッフルする
-        questionDataArray.shuffle()//これだけでOKのようです？
+        questionDataArray.shuffle()//これだけでOK
         
         
 print(questionDataArray[0].questionNo)
@@ -119,6 +111,7 @@ print("loadQuestion")
         if nowQuestionIndex < questionDataArray.count { //問題に残りがある時
             let nextQuestion = questionDataArray[nowQuestionIndex]
             nowQuestionIndex += 1 //次の問題へ
+            Singleton.sharedInstance.saveNumber(number: nowQuestionIndex)
             return nextQuestion
         }
         return nil

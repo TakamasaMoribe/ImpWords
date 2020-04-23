@@ -13,8 +13,6 @@ class QuestionViewController: UIViewController {
     
     var filename:String = ""       //問題データのCSVファイル名本体部分
     var questionData:QuestionData! //前画面より受け取るデータ
-    var questionNo:Int = 0         //現在の出題数
-    
     
     @IBOutlet weak var progressView: UIProgressView! //解答の進行状況
     
@@ -42,12 +40,14 @@ class QuestionViewController: UIViewController {
         
         
         //問題数の取得  QuestionDataManeger.sharedInstance.questionDataArray****
-        let questionCount = QuestionDataManeger.sharedInstance.questionDataArray.count
+        let questionCount = QuestionDataManeger.sharedInstance.questionDataArray.count//問題数
+        let questionNo = Singleton.sharedInstance.getNumber() //出題の順番
         
-        questionNo += 1
+        
+  //      questionNo += 1
         //初期データ設定。前画面から受け取ったquestionDataから値を取り出す
 
-        questionNoLabel.text = "Q.\(questionNo)" + "/\(questionCount)"
+        questionNoLabel.text = "Q.\(questionNo)" + "/\(questionCount)"//　出題順/問題数合計
         questionTextView.text = questionData.question //問題文
         answer1Button.setTitle(questionData.answer1, for: UIControl.State.normal)
         answer2Button.setTitle(questionData.answer2, for: UIControl.State.normal)
