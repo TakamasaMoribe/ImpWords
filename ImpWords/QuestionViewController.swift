@@ -41,12 +41,9 @@ class QuestionViewController: UIViewController {
         
         //問題数の取得  QuestionDataManeger.sharedInstance.questionDataArray****
         let questionCount = QuestionDataManeger.sharedInstance.questionDataArray.count//問題数
-        let questionNo = Singleton.sharedInstance.getNumber() //出題の順番
+        let questionNo = Singleton.sharedInstance.getNumber() //今は何問目か
         
-        
-  //      questionNo += 1
         //初期データ設定。前画面から受け取ったquestionDataから値を取り出す
-
         questionNoLabel.text = "Q.\(questionNo)" + "/\(questionCount)"//　出題順/問題数合計
         questionTextView.text = questionData.question //問題文
         answer1Button.setTitle(questionData.answer1, for: UIControl.State.normal)
@@ -134,7 +131,7 @@ class QuestionViewController: UIViewController {
         }
         
         //問題文に残りがあり、次の問題文を表示する時
-        //StoryboardのIdentifierに設定した値(question)を使って、ViewControllerを生成する
+        //StoryboardのIdentifierに設定した値("question")を使って、ViewControllerを生成する
         //presentメソッドは、セグエを利用せずに画面をモーダルで表示するメソッド
         if let nextQuestionViewController = storyboard?.instantiateViewController(identifier: "question") as? QuestionViewController {
             nextQuestionViewController.questionData = nextQuestion

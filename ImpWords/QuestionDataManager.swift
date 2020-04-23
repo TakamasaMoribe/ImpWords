@@ -20,9 +20,6 @@ class QuestionData {
     var answer4:String        //選択肢４
     
     var userChoiceAnswer:String = "" //ユーザーが選択した答
-//    var questionNo:Int = 0    //出題番号
-
-
     
     init(questionSourceDataArray:[String]) {
         questionNo = questionSourceDataArray[0]    //問題番号
@@ -90,19 +87,14 @@ class QuestionDataManeger {
             }catch let error {
                 print("ファイル読み込みエラー:\(error)")
                 return
-        } //do節ここまで
+            } //do節ここまで
         
         //問題の出題順をシャッフルする　配列内で要素をシャッフルする
         questionDataArray.shuffle()//これだけでOK
         
         
-print(questionDataArray[0].questionNo)
-print(questionDataArray[0].question)
-print(questionDataArray[0].correctAnswer)
-print(questionDataArray[1].questionNo)
-print(questionDataArray[1].question)
-print(questionDataArray[1].correctAnswer)
-print("loadQuestion")
+print(questionDataArray[0].questionNo,questionDataArray[0].question,questionDataArray[0].correctAnswer,separator:"/")
+print(questionDataArray[1].questionNo,questionDataArray[1].question,questionDataArray[1].correctAnswer,separator:"/")
         
     }
     
@@ -111,7 +103,7 @@ print("loadQuestion")
         if nowQuestionIndex < questionDataArray.count { //問題に残りがある時
             let nextQuestion = questionDataArray[nowQuestionIndex]
             nowQuestionIndex += 1 //次の問題へ
-            Singleton.sharedInstance.saveNumber(number: nowQuestionIndex)
+            Singleton.sharedInstance.saveNumber(number: nowQuestionIndex) //何問目か
             return nextQuestion
         }
         return nil

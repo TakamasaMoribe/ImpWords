@@ -10,7 +10,7 @@ import UIKit
 
 class ResultViewController: UIViewController {
         
-    @IBOutlet weak var correctPercentLabel: UILabel!
+    @IBOutlet weak var correctPercentLabel: UILabel! //正解率表示用ラベル
  
     
     override func viewDidLoad() {
