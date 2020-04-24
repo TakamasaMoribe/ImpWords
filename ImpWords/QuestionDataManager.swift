@@ -69,6 +69,7 @@ class QuestionDataManeger {
         //問題ファイルのパスを指定する　セクメンティッドコントロールから取得する
         guard let csvFilePath = Bundle.main.path(forResource: filename, ofType: "csv") else {
             print("ファイルが存在しません")//エラー処理が欲しい
+            
             return
         }
         //問題ファイルからデータを読み込む
@@ -108,5 +109,8 @@ print(questionDataArray[1].questionNo,questionDataArray[1].question,questionData
         }
         return nil
     }
+ 
+    
+    
     
 }

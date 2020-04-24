@@ -13,12 +13,13 @@ class StartViewController: UIViewController {
     let singleton:Singleton = Singleton.sharedInstance//シングルトンインスタンス******
 
     @IBOutlet weak var gradeSegment: UISegmentedControl! //学年名
-
     @IBOutlet weak var unitSegment: UISegmentedControl!  //単元名
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
     
     //次画面に移る前の処理
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,7 +37,7 @@ class StartViewController: UIViewController {
          //ファイル名の生成　学年名＋単元名
          filename = text1! + text2!
          singleton.saveItem(item: filename) //ファイル名を　シングルトンへ保存　読み込みで使用
-
+        
         //問題文の読み込み  sharedInstance.loadQuestion() ****
         QuestionDataManeger.sharedInstance.loadQuestion()
         //遷移先画面の呼び出し
@@ -54,6 +55,8 @@ class StartViewController: UIViewController {
     //タイトルに戻ってくるときに呼び出される処理
     @IBAction func goToTitle(_ segue:UIStoryboardSegue){
     }
+    
+    
 
     
 }
