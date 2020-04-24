@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7F44AEE024526F3500FEB84E /* １年化学.csv in Resources */ = {isa = PBXBuildFile; fileRef = 7F44AEDF24526F3500FEB84E /* １年化学.csv */; };
+		7F44AEE424528EA900FEB84E /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F44AEE324528EA900FEB84E /* ShowAlert.swift */; };
 		7F5E062B2445743D0039AC76 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E062A2445743D0039AC76 /* StartViewController.swift */; };
 		7F5E062E244578130039AC76 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5E062D244578130039AC76 /* AudioToolbox.framework */; };
 		7F5E06312445849C0039AC76 /* incorrect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5E062F2445849B0039AC76 /* incorrect@2x.png */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		7F44AEDF24526F3500FEB84E /* １年化学.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "１年化学.csv"; sourceTree = "<group>"; };
+		7F44AEE324528EA900FEB84E /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 		7F46659B244BEA7D00E1E0EF /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		7F5E062A2445743D0039AC76 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		7F5E062D244578130039AC76 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -74,6 +76,7 @@
 		7FDE59802444411100003916 = {
 			isa = PBXGroup;
 			children = (
+				7F44AEE324528EA900FEB84E /* ShowAlert.swift */,
 				7FDE598B2444411100003916 /* ImpWords */,
 				7FDE598A2444411100003916 /* Products */,
 				7F5E062C244578130039AC76 /* Frameworks */,
@@ -195,6 +198,7 @@
 				7FDE598D2444411100003916 /* AppDelegate.swift in Sources */,
 				7F88C30B244ED74800F8ABA3 /* Singleton.swift in Sources */,
 				7FDE59A32444456700003916 /* QuestionViewController.swift in Sources */,
+				7F44AEE424528EA900FEB84E /* ShowAlert.swift in Sources */,
 				7FDE59A524444A3400003916 /* QuestionDataManager.swift in Sources */,
 				7FDE598F2444411100003916 /* SceneDelegate.swift in Sources */,
 				7F5E062B2445743D0039AC76 /* StartViewController.swift in Sources */,
