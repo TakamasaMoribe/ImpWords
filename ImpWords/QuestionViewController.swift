@@ -29,15 +29,9 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var trueAnswer: UILabel!          //不正解の時、正解を示す hide属性
     @IBOutlet weak var nextQuestionButton: UIButton! //次の問題へ進むボタン　 hide
     
-        
-    
-    @IBAction func clickStopButton(_ sender: Any) {
-    } // 中止ボタンをクリックした時  goToTittleと同じ動作
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         //問題数の取得  QuestionDataManeger.sharedInstance.questionDataArray****
         let questionCount = QuestionDataManeger.sharedInstance.questionDataArray.count//問題数
@@ -139,6 +133,51 @@ class QuestionViewController: UIViewController {
             present(nextQuestionViewController,animated: true,completion: nil)
         }
     }
- 
 
+    
+// 中断ボタンをクリックした時  ここまでのデータを保存する
+    @IBAction func clickStopButton(_ sender: Any) {
+    //問題数の取得  QuestionDataManeger.sharedInstance.questionDataArray****
+
+//    let questionNo = Singleton.sharedInstance.getNumber() //今は何問目か
+    //問題の取得  QuestionDataManeger.sharedInstance.questionDataArray****
+        let listArray = QuestionDataManeger.sharedInstance.questionDataArray
+        let questionCount = QuestionDataManeger.sharedInstance.questionDataArray.count//問題数
+        
+        
+//        print(listArray[0].question)
+        //配列をCSVファイルに変換する
+        
+        var csvString = ""
+        for i in 0 ... questionCount - 1{
+            csvString = listArray[i].questionNo + listArray[i].question + listArray[i].correctAnswer
+                    print(csvString)
+//            for item in listArray[i].{
+//                csvString += item
+//                if item = listArray[i].last{
+//                    csvString += "\n"//改行
+//                }
+//            }
+        }
+//        print(csvString)
+        
+        
+        //問題の保存 csvファイルとして保存する
+        let thePath = NSHomeDirectory()+"/Documents/myTextfile.csv"
+     //   let textData = textView1.text////ここを変える
+        let textData = "1,question,answer,sel1,sel2,sel3,sel4"//csvためし
+        do {
+            try textData.write(toFile:thePath,atomically:true,encoding:String.Encoding.utf8)
+        }catch let error as NSError {
+            print("保存に失敗。\n \(error)")
+        }
+                
+        //問題の進み具合
+        let listNo = Singleton.sharedInstance.getNumber() //今は何問目か
+        let defaults = UserDefaults.standard         //ユーザーデフォルトを参照する
+        defaults.set(listNo, forKey: "listNo")       //今が何問目かを"listNo"として保存する
+
+    }
+    
+    
 }

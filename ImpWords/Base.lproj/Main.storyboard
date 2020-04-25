@@ -64,12 +64,21 @@
                                     <segue destination="ebj-5J-WA2" kind="show" identifier="goToQuestion" id="aCu-8E-Nbr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgv-cP-l47">
+                                <rect key="frame" x="167" y="579" width="41" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="再開"/>
+                                <connections>
+                                    <action selector="clickRetryButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ojU-kg-GtY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="R3I-Om-t2K" firstAttribute="top" secondItem="U2M-wC-5bV" secondAttribute="bottom" constant="26" id="2Td-mB-TpC"/>
                             <constraint firstItem="Hsw-sL-94x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2qM-hz-Cpw"/>
                             <constraint firstItem="U2M-wC-5bV" firstAttribute="centerX" secondItem="R3I-Om-t2K" secondAttribute="centerX" id="9t2-oy-Lfo"/>
+                            <constraint firstItem="Wgv-cP-l47" firstAttribute="centerX" secondItem="R3I-Om-t2K" secondAttribute="centerX" id="9x0-Ol-WSI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uF7-0d-qKJ" secondAttribute="trailing" constant="146" id="AMS-0F-JyE"/>
                             <constraint firstItem="Hsw-sL-94x" firstAttribute="top" secondItem="t5z-Sy-zcX" secondAttribute="bottom" constant="26" id="BQn-yi-YuD"/>
                             <constraint firstItem="t5z-Sy-zcX" firstAttribute="top" secondItem="fJs-Qq-gPH" secondAttribute="bottom" constant="61" id="Bk7-vm-SVH"/>
@@ -81,6 +90,7 @@
                             <constraint firstItem="U2M-wC-5bV" firstAttribute="top" secondItem="Hsw-sL-94x" secondAttribute="bottom" constant="83" id="lUz-5n-fiw"/>
                             <constraint firstItem="Hsw-sL-94x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="85" id="mMH-C1-Uiw"/>
                             <constraint firstItem="t5z-Sy-zcX" firstAttribute="leading" secondItem="U2M-wC-5bV" secondAttribute="leading" id="qog-IJ-EpE"/>
+                            <constraint firstItem="Wgv-cP-l47" firstAttribute="top" secondItem="uF7-0d-qKJ" secondAttribute="bottom" constant="31" id="szJ-cH-HK4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uF7-0d-qKJ" secondAttribute="bottom" constant="119" id="vF3-td-r22"/>
                             <constraint firstItem="R3I-Om-t2K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="63" id="xJJ-nR-ke7"/>
                         </constraints>
@@ -172,21 +182,20 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNO-Pi-6Mr">
-                                <rect key="frame" x="69" y="534" width="41" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="中止"/>
-                                <connections>
-                                    <action selector="clickStopButton:" destination="ebj-5J-WA2" eventType="touchUpInside" id="GaN-1M-CGV"/>
-                                    <segue destination="bSO-r3-tRP" kind="unwind" unwindAction="goToTitle:" id="CFv-ob-ut8"/>
-                                </connections>
-                            </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKt-49-5OO">
                                 <rect key="frame" x="36" y="195" width="41" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNO-Pi-6Mr">
+                                <rect key="frame" x="36" y="534" width="82" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="中断する"/>
+                                <connections>
+                                    <action selector="clickStopButton:" destination="ebj-5J-WA2" eventType="touchUpInside" id="wLg-1D-4UH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -198,7 +207,7 @@
                             <constraint firstItem="6nu-Zs-fxx" firstAttribute="top" secondItem="Lvr-oe-0NI" secondAttribute="top" constant="20" id="CDU-yp-0Et"/>
                             <constraint firstItem="9Jd-hs-hFV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mKt-49-5OO" secondAttribute="trailing" constant="8" symbolic="YES" id="Dlp-bs-OgI"/>
                             <constraint firstItem="m6a-Qj-Mno" firstAttribute="centerX" secondItem="kFN-ip-znc" secondAttribute="centerX" constant="-1" id="ErM-br-2Ri"/>
-                            <constraint firstItem="fNO-Pi-6Mr" firstAttribute="leading" secondItem="Lvr-oe-0NI" secondAttribute="leading" constant="69" id="FhH-23-Xo1"/>
+                            <constraint firstItem="fNO-Pi-6Mr" firstAttribute="leading" secondItem="Lvr-oe-0NI" secondAttribute="leading" constant="36" id="FhH-23-Xo1"/>
                             <constraint firstItem="mKt-49-5OO" firstAttribute="leading" secondItem="6nu-Zs-fxx" secondAttribute="leading" constant="-27" id="Kxg-ht-LrP"/>
                             <constraint firstItem="mKt-49-5OO" firstAttribute="bottom" secondItem="9Jd-hs-hFV" secondAttribute="bottom" id="MrL-aN-wZg"/>
                             <constraint firstItem="2XG-b8-7sC" firstAttribute="bottom" secondItem="m6a-Qj-Mno" secondAttribute="bottom" id="MrY-el-EP0"/>
@@ -237,7 +246,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TmP-hg-ffb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="bSO-r3-tRP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="893.60000000000002" y="100.29985007496252"/>
         </scene>

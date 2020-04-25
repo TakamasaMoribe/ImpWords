@@ -15,6 +15,25 @@ class StartViewController: UIViewController {
     @IBOutlet weak var gradeSegment: UISegmentedControl! //学年名
     @IBOutlet weak var unitSegment: UISegmentedControl!  //単元名
 
+    // 再開ボタンを押した時 UserDefaultsから、保存したデータを読み込む
+    @IBAction func clickRetryButton(_ sender: Any) {
+        
+        //データの読み込み
+        let thePath = NSHomeDirectory()+"/Documents/myTextfile.csv"
+        
+        do {
+            let textData = try String(contentsOfFile: thePath, encoding: String.Encoding.utf8)
+            //
+            print(textData)
+        }catch let error as NSError {
+            print("ファイル読み込みに失敗。\n \(error)")
+        }
+        
+        let defaults = UserDefaults.standard //UserDefaultsを参照する
+        let listNo = defaults.integer(forKey: "listNo")
+        print(listNo)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
