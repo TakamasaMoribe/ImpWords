@@ -144,34 +144,27 @@ class QuestionViewController: UIViewController {
         let listArray = QuestionDataManeger.sharedInstance.questionDataArray
         let questionCount = QuestionDataManeger.sharedInstance.questionDataArray.count//問題数
         
-        
-//        print(listArray[0].question)
-        //配列をCSVファイルに変換する
-        
+    //配列をCSVファイルに変換する
         var csvString = ""
+        var item = ""
         for i in 0 ... questionCount - 1{
-            csvString = listArray[i].questionNo + listArray[i].question + listArray[i].correctAnswer
-                    print(csvString)
-//            for item in listArray[i].{
-//                csvString += item
-//                if item = listArray[i].last{
-//                    csvString += "\n"//改行
-//                }
-//            }
+            item = listArray[i].questionNo + "," + listArray[i].question + "," + listArray[i].correctAnswer + "," + listArray[i].answer1 + "," + listArray[i].answer2 + "," + listArray[i].answer3  + "," + listArray[i].answer4 + "\n" //改行
+                csvString += item
         }
-//        print(csvString)
+//                    print("csvString:\(csvString)")
         
         
         //問題の保存 csvファイルとして保存する
         let thePath = NSHomeDirectory()+"/Documents/myTextfile.csv"
      //   let textData = textView1.text////ここを変える
-        let textData = "1,question,answer,sel1,sel2,sel3,sel4"//csvためし
+        let textData = csvString
         do {
             try textData.write(toFile:thePath,atomically:true,encoding:String.Encoding.utf8)
         }catch let error as NSError {
             print("保存に失敗。\n \(error)")
         }
-                
+//      print(NSHomeDirectory()+"/Documents/myTextfile.csv")
+        print("csvData:\(csvString)")
         //問題の進み具合
         let listNo = Singleton.sharedInstance.getNumber() //今は何問目か
         let defaults = UserDefaults.standard         //ユーザーデフォルトを参照する
