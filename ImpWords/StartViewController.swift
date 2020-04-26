@@ -15,26 +15,7 @@ class StartViewController: UIViewController {
     @IBOutlet weak var gradeSegment: UISegmentedControl! //学年名
     @IBOutlet weak var unitSegment: UISegmentedControl!  //単元名
 
-    // 再開ボタンを押した時 UserDefaultsから、保存したデータを読み込む
-    @IBAction func clickRetryButton(_ sender: Any) {
-        
-        //データの読み込み
-        let thePath = NSHomeDirectory()+"/Documents/myTextfile.csv"
-        
-        do {
-            let textData = try String(contentsOfFile: thePath, encoding: String.Encoding.utf8)
-            //
-            print(textData)
-        }catch let error as NSError {
-            print("ファイル読み込みに失敗。\n \(error)")
-        }
-        
-        let defaults = UserDefaults.standard //UserDefaultsを参照する
-        let listNo = defaults.integer(forKey: "listNo")
-        print(listNo)
-        
-    }
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -57,6 +38,7 @@ class StartViewController: UIViewController {
          filename = text1! + text2!
          singleton.saveItem(item: filename) //ファイル名を　シングルトンへ保存　読み込みで使用
         
+        
         //問題文の読み込み  sharedInstance.loadQuestion() ****
         QuestionDataManeger.sharedInstance.loadQuestion()
         //遷移先画面の呼び出し
@@ -76,7 +58,73 @@ class StartViewController: UIViewController {
     }
     
     
+    // 再開ボタンを押した時 保存した問題データと、UserDefaultsに保存した問題進行を読み込む
+     @IBAction func clickRetryButton(_ sender: Any) {
+        
+        //問題を格納するための配列
+        var questionDataArray = [QuestionData]() //QuestionDataの型
+        
+         //データの読み込み　準備
+         let thePath = NSHomeDirectory()+"/Documents/myTextfile.csv"
+         do {
+            let csvStringData = try String(contentsOfFile: thePath, encoding: String.Encoding.utf8)
+            csvStringData.enumerateLines(invoking: {(line,stop) in //改行されるごとに分割する
+                let questionSourceDataArray = line.components(separatedBy: ",") //１行を","で分割して配列に入れる
+                let questionData = QuestionData(questionSourceDataArray: questionSourceDataArray)//１行分の配列
+                questionDataArray.append(questionData) //格納用の配列に、１行ずつ追加していく
+                }) //invokingからのクロージャここまで
+            
+         }catch let error as NSError {
+             print("ファイル読み込みに失敗。\n \(error)")
+         } //Do節ここまで
+         let defaults = UserDefaults.standard //UserDefaultsを参照する
+         let listNo = defaults.integer(forKey: "listNo")//問題の進み具合
+        
+print("次は何番目から：\(listNo)")
+print(questionDataArray[0].question)
+        
+        //次の問題文を表示する
+        var nowQuestionIndex = listNo
+        //問題文の取り出し  QuestionDataManeger.sharedInstance.nextQuestion() ****
+  //       func nextQuestion() -> QuestionData? {
+  //           if nowQuestionIndex < questionDataArray.count { //問題に残りがある時
+                 let nextQuestion = questionDataArray[nowQuestionIndex]
+                 nowQuestionIndex += 1 //次の問題へ
+                 Singleton.sharedInstance.saveNumber(number: nowQuestionIndex) //何問目か
+   //              return nextQuestion
+   //          }
+   //          return nil
+   //      }
+                
+        
+        
+//        let nextQuestion = QuestionDataManeger.sharedInstance.nextQuestion()
+//        //問題文の取り出し  QuestionDataManeger.sharedInstance.nextQuestion ****
+//        guard let nextQuestion = QuestionDataManeger.sharedInstance.nextQuestion() else {
+//            return
+//        }
+        //StoryboardのIdentifierに設定した値("question")を使って、ViewControllerを生成する
+        //presentメソッドは、セグエを利用せずに画面をモーダルで表示するメソッド
+        if let nextQuestionViewController = storyboard?.instantiateViewController(identifier: "question") as? QuestionViewController {
+            nextQuestionViewController.questionData = nextQuestion//次の問題を、問題データに設定する
+            
+print(questionDataArray[0].correctAnswer)
+            //StoryboardのSegueを利用しない明示的な画面遷移処理
+            present(nextQuestionViewController,animated: true,completion: nil)
+            
 
+        }
+    
+//        //問題文の取り出し  sharedInstance.nextQuestion() ****
+//        guard let questionData = QuestionDataManeger.sharedInstance.nextQuestion() else {
+//            return
+//        }
+//        //問題文のセット
+//        nextViewController.questionData = questionData
+        
+        
+     }
+     
     
 }
 

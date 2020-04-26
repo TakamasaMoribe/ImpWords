@@ -164,11 +164,11 @@ class QuestionViewController: UIViewController {
             print("保存に失敗。\n \(error)")
         }
 //      print(NSHomeDirectory()+"/Documents/myTextfile.csv")
-        print("csvData:\(csvString)")
+//        print("csvData:\(csvString)")
         //問題の進み具合
         let listNo = Singleton.sharedInstance.getNumber() //今は何問目か
-        let defaults = UserDefaults.standard         //ユーザーデフォルトを参照する
-        defaults.set(listNo, forKey: "listNo")       //今が何問目かを"listNo"として保存する
+        let defaults = UserDefaults.standard              //ユーザーデフォルトを参照する
+        defaults.set(listNo + 1, forKey: "listNo")        //再開する問題の順を"listNo"として保存する
 
     }
     

@@ -88,15 +88,9 @@ class QuestionDataManeger {
             }catch let error {
                 print("ファイル読み込みエラー:\(error)")
                 return
-            } //do節ここまで
-        
-        //問題の出題順をシャッフルする　配列内で要素をシャッフルする
-        questionDataArray.shuffle()//これだけでOK
-        
-        
-print(questionDataArray[0].questionNo,questionDataArray[0].question,questionDataArray[0].correctAnswer,separator:"/")
-print(questionDataArray[1].questionNo,questionDataArray[1].question,questionDataArray[1].correctAnswer,separator:"/")
-        
+        } //do節ここまで
+    //問題の出題順をシャッフルする　配列内で要素をシャッフルする
+    questionDataArray.shuffle() //これだけでOK
     }
     
     //問題文の取り出し  QuestionDataManeger.sharedInstance.nextQuestion() ****
