@@ -84,25 +84,13 @@ print("次は何番目から：\(listNo)")
 print(questionDataArray[0].question)
         
         //次の問題文を表示する
-        var nowQuestionIndex = listNo
+        var nowQuestionIndex = listNo//保存しておいた番号
         //問題文の取り出し  QuestionDataManeger.sharedInstance.nextQuestion() ****
-  //       func nextQuestion() -> QuestionData? {
-  //           if nowQuestionIndex < questionDataArray.count { //問題に残りがある時
+
                  let nextQuestion = questionDataArray[nowQuestionIndex]
                  nowQuestionIndex += 1 //次の問題へ
                  Singleton.sharedInstance.saveNumber(number: nowQuestionIndex) //何問目か
-   //              return nextQuestion
-   //          }
-   //          return nil
-   //      }
                 
-        
-        
-//        let nextQuestion = QuestionDataManeger.sharedInstance.nextQuestion()
-//        //問題文の取り出し  QuestionDataManeger.sharedInstance.nextQuestion ****
-//        guard let nextQuestion = QuestionDataManeger.sharedInstance.nextQuestion() else {
-//            return
-//        }
         //StoryboardのIdentifierに設定した値("question")を使って、ViewControllerを生成する
         //presentメソッドは、セグエを利用せずに画面をモーダルで表示するメソッド
         if let nextQuestionViewController = storyboard?.instantiateViewController(identifier: "question") as? QuestionViewController {
